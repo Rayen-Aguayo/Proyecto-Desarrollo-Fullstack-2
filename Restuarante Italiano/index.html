@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>La Cucina Nostra | Restaurant Italiano</title>
+
+  <!-- Bootstrap 5 -->
+  <link
+    href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+    rel="stylesheet"
+  >
+  <link
+    rel="stylesheet"
+    href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css"
+  >
+
+  <!-- Estilos personalizados -->
+  <link rel="stylesheet" href="styleindex.css">
+</head>
+
+<body>
+
+  <!-- ================= HEADER ================= -->
+  <header class="topbar">
+    <nav class="navbar navbar-expand-lg">
+      <div class="container">
+
+        <a class="brand" href="#">
+          <span class="brand-mark"></span>
+          LA CUCINA NOSTRA
+        </a>
+
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#mainNav"
+          aria-controls="mainNav"
+          aria-expanded="false"
+          aria-label="Abrir navegación"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="mainNav">
+          <ul class="navbar-nav ms-lg-4 me-auto">
+            <li class="nav-item">
+              <a class="nav-link" href="#">Inicio</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#menu">Menú</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#nosotros">Nosotros</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#blog">Blog</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#contacto">Contacto</a>
+            </li>
+          </ul>
+
+          <a class="cart-link" href="#">
+            <i class="bi bi-cart3 me-2"></i>
+            Cart
+          </a>
+        </div>
+
+      </div>
+    </nav>
+  </header>
+
+  <!-- ================= CUENTA ================= -->
+  <div class="account-bar">
+    <div class="container">
+      <div class="login-links text-end">
+        <a href="login.html">Iniciar sesión</a>
+        <span class="text-muted mx-1">|</span>
+        <a href="register.html">Registrarse</a>
+      </div>
+    </div>
+  </div>
+
+  <main>
+
+    <!-- ================= HERO ================= -->
+    <section class="hero">
+      <div class="container">
+        <div class="row align-items-center g-4">
+
+          <div class="col-lg-6">
+            <h1 class="hero-title display-6 mb-3">LA CUCINA NOSTRA</h1>
+
+            <p class="hero-text mb-4">
+              Sabores auténticos de Italia preparados con ingredientes frescos,
+              recetas tradicionales y el cariño de nuestra cucina.
+              Descubre una experiencia italiana en cada plato.
+            </p>
+
+            <a href="#menu" class="btn btn-menu">
+              <i class="bi bi-arrow-down-circle me-2"></i>
+              Ver nuestro menú
+            </a>
+          </div>
+
+          <div class="col-lg-6">
+            <!-- Imagen de ejemplo. Puedes reemplazarla por una imagen local. -->
+            <img
+              class="hero-image"
+              src="https://images.unsplash.com/photo-1555396273-367ea4eb4db5?auto=format&fit=crop&w=1000&q=80"
+              alt="Interior de un restaurante italiano"
+            >
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= MENÚ ================= -->
+    <section id="menu" class="products-section">
+      <div class="container">
+
+        <div class="row g-3">
+
+          <!-- Plato 1 -->
+          <div class="col-12 col-sm-6 col-lg-3">
+            <article class="product-card">
+              <img
+                class="product-image"
+                src="https://images.unsplash.com/photo-1574071318508-1cdbab80d002?auto=format&fit=crop&w=700&q=80"
+                alt="Pizza Margherita"
+              >
+              <div class="d-flex justify-content-between align-items-center mt-2">
+                <a class="product-title" href="#">Pizza Margherita</a>
+              </div>
+              <div class="d-flex justify-content-between mt-2">
+                <span class="product-description">Tomate, mozzarella y albahaca</span>
+                <span class="product-price">$9.900</span>
+              </div>
+            </article>
+          </div>
+
+          <!-- Plato 2 -->
+          <div class="col-12 col-sm-6 col-lg-3">
+            <article class="product-card">
+              <img
+                class="product-image"
+                src="https://images.unsplash.com/photo-1551183053-bf91a1d81141?auto=format&fit=crop&w=700&q=80"
+                alt="Pasta italiana"
+              >
+              <a class="product-title d-block mt-2" href="#">Pasta al Pesto</a>
+              <div class="d-flex justify-content-between mt-2">
+                <span class="product-description">Pesto, parmesano y albahaca</span>
+                <span class="product-price">$10.900</span>
+              </div>
+            </article>
+          </div>
+
+          <!-- Plato 3 -->
+          <div class="col-12 col-sm-6 col-lg-3">
+            <article class="product-card">
+              <img
+                class="product-image"
+                src="https://images.unsplash.com/photo-1547592180-85f173990554?auto=format&fit=crop&w=700&q=80"
+                alt="Lasagna italiana"
+              >
+              <a class="product-title d-block mt-2" href="#">Lasagna della Nonna</a>
+              <div class="d-flex justify-content-between mt-2">
+                <span class="product-description">Carne, pasta, salsa y queso</span>
+                <span class="product-price">$11.900</span>
+              </div>
+            </article>
+          </div>
+
+          <!-- Plato 4 -->
+          <div class="col-12 col-sm-6 col-lg-3">
+            <article class="product-card">
+              <img
+                class="product-image"
+                src="https://images.unsplash.com/photo-1571997478779-2adcbbe9ab2f?auto=format&fit=crop&w=700&q=80"
+                alt="Pizza italiana"
+              >
+              <a class="product-title d-block mt-2" href="#">Pizza Prosciutto</a>
+              <div class="d-flex justify-content-between mt-2">
+                <span class="product-description">Prosciutto, mozzarella y rúcula</span>
+                <span class="product-price">$12.500</span>
+              </div>
+            </article>
+          </div>
+
+          <!-- Plato 5 -->
+          <div class="col-12 col-sm-6 col-lg-3">
+            <article class="product-card">
+              <img
+                class="product-image"
+                src="https://images.unsplash.com/photo-1473093295043-cdd812d0e601?auto=format&fit=crop&w=700&q=80"
+                alt="Spaghetti italiano"
+              >
+              <a class="product-title d-block mt-2" href="#">Spaghetti Carbonara</a>
+              <div class="d-flex justify-content-between mt-2">
+                <span class="product-description">Pasta, huevo, queso y panceta</span>
+                <span class="product-price">$10.500</span>
+              </div>
+            </article>
+          </div>
+
+          <!-- Plato 6 -->
+          <div class="col-12 col-sm-6 col-lg-3">
+            <article class="product-card">
+              <img
+                class="product-image"
+                src="https://images.unsplash.com/photo-1563379926898-05f4575a45d8?auto=format&fit=crop&w=700&q=80"
+                alt="Ravioli"
+              >
+              <a class="product-title d-block mt-2" href="#">Ravioli di Ricotta</a>
+              <div class="d-flex justify-content-between mt-2">
+                <span class="product-description">Ricotta, espinaca y salsa pomodoro</span>
+                <span class="product-price">$11.500</span>
+              </div>
+            </article>
+          </div>
+
+          <!-- Plato 7 -->
+          <div class="col-12 col-sm-6 col-lg-3">
+            <article class="product-card">
+              <img
+                class="product-image"
+                src="https://images.unsplash.com/photo-1572449043416-55f4685c9bb7?auto=format&fit=crop&w=700&q=80"
+                alt="Tiramisú"
+              >
+              <a class="product-title d-block mt-2" href="#">Tiramisù Classico</a>
+              <div class="d-flex justify-content-between mt-2">
+                <span class="product-description">Café, mascarpone y cacao</span>
+                <span class="product-price">$6.900</span>
+              </div>
+            </article>
+          </div>
+
+          <!-- Plato 8 -->
+          <div class="col-12 col-sm-6 col-lg-3">
+            <article class="product-card">
+              <img
+                class="product-image"
+                src="https://images.unsplash.com/photo-1578985545062-69928b1d9587?auto=format&fit=crop&w=700&q=80"
+                alt="Postre italiano"
+              >
+              <a class="product-title d-block mt-2" href="#">Dolce della Casa</a>
+              <div class="d-flex justify-content-between mt-2">
+                <span class="product-description">Postre italiano del día</span>
+                <span class="product-price">$6.500</span>
+              </div>
+            </article>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= NOSOTROS ================= -->
+    <section id="nosotros" class="py-5 border-top">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-8">
+            <h2 class="h3" style="font-family: Georgia, serif;">La nostra storia</h2>
+            <p class="text-secondary">
+              En La Cucina Nostra queremos llevar a tu mesa la esencia de la
+              cocina italiana: productos de calidad, preparaciones artesanales
+              y una atención cercana, como si estuvieras compartiendo la mesa
+              con nuestra familia.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ================= FOOTER ================= -->
+  <footer id="contacto">
+    <div class="container">
+      <div class="row align-items-center g-3">
+
+        <div class="col-lg-5">
+          <div class="footer-links">
+            <a href="#">Inicio</a>
+            <span class="mx-1">|</span>
+            <a href="#menu">Menú</a>
+            <span class="mx-1">|</span>
+            <a href="#nosotros">Nosotros</a>
+            <span class="mx-1">|</span>
+            <a href="#">Contacto</a>
+          </div>
+
+          <div class="social-icons mt-2">
+            <i class="bi bi-instagram"></i>
+            <i class="bi bi-facebook"></i>
+            <i class="bi bi-whatsapp"></i>
+          </div>
+        </div>
+
+        <div class="col-lg-7">
+          <div class="newsletter text-lg-end">
+            <div class="newsletter-label">
+              ¿Te gustaría recibir novedades de La Cucina Nostra?
+            </div>
+
+            <form class="d-flex justify-content-lg-end" onsubmit="return false;">
+              <input
+                type="email"
+                class="form-control"
+                style="max-width: 280px;"
+                placeholder="Ingresa tu correo"
+                aria-label="Correo electrónico"
+              >
+              <button class="btn" type="submit">Suscribirse</button>
+            </form>
+          </div>
+        </div>
+
+      </div>
+
+      <div class="text-center text-secondary mt-3" style="font-size: .7rem;">
+        © 2026 La Cucina Nostra · Restaurant Italiano
+      </div>
+    </div>
+  </footer>
+
+  <!-- Bootstrap JS -->
+  <script
+    src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+  ></script>
+
+</body>
+</html>
