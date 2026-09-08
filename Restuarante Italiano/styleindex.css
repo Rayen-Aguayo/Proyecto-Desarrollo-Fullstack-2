@@ -1,0 +1,209 @@
+:root {
+    --italian-green: #315b3a;
+    --italian-red: #9d3028;
+    --cream: #f7f2e8;
+    --dark: #252525;
+}
+
+    body {
+      background-color: #fff;
+      color: var(--dark);
+      font-family: Arial, Helvetica, sans-serif;
+    }
+
+    /* Barra superior */
+    .topbar {
+      border-bottom: 1px solid #d9d9d9;
+      background: #fff;
+      min-height: 82px;
+    }
+
+    .brand-mark {
+      width: 12px;
+      height: 12px;
+      display: inline-block;
+      background: var(--italian-green);
+      margin-right: 9px;
+    }
+
+    .brand {
+      color: var(--dark);
+      font-weight: 700;
+      letter-spacing: .08em;
+      text-decoration: none;
+      white-space: nowrap;
+    }
+
+    .nav-link {
+      color: #555 !important;
+      font-size: .92rem;
+    }
+
+    .nav-link:hover,
+    .login-links a:hover {
+      color: var(--italian-red) !important;
+    }
+
+    .cart-link {
+      color: var(--dark);
+      text-decoration: none;
+      white-space: nowrap;
+    }
+
+    /* Área de acceso */
+    .account-bar {
+      min-height: 48px;
+      display: flex;
+      align-items: center;
+      justify-content: flex-end;
+    }
+
+    .login-links a {
+      color: #555;
+      text-decoration: none;
+      font-size: .85rem;
+    }
+
+    /* Hero */
+    .hero {
+      background: var(--cream);
+      min-height: 195px;
+      display: flex;
+      align-items: center;
+    }
+
+    .hero-title {
+      font-family: Georgia, "Times New Roman", serif;
+      font-weight: 700;
+      letter-spacing: .04em;
+    }
+
+    .hero-text {
+      color: #666;
+      font-size: .82rem;
+      line-height: 1.6;
+      max-width: 500px;
+    }
+
+    .btn-menu {
+      background: var(--italian-green);
+      border-color: var(--italian-green);
+      border-radius: 0;
+      color: #fff;
+      font-size: .85rem;
+      padding: .65rem 1.5rem;
+    }
+
+    .btn-menu:hover {
+      background: #26492e;
+      border-color: #26492e;
+      color: #fff;
+    }
+
+    .hero-image {
+      height: 175px;
+      width: 100%;
+      object-fit: cover;
+    }
+
+    /* Tarjetas */
+    .products-section {
+      padding: 40px 0 25px;
+    }
+
+    .product-card {
+      border: 0;
+      border-radius: 0;
+      background: #f3f3f3;
+      height: 100%;
+      padding: 10px;
+    }
+
+    .product-image {
+      width: 100%;
+      height: 105px;
+      object-fit: cover;
+      border: 1px solid #ddd;
+    }
+
+    .product-title {
+      color: var(--italian-green);
+      font-size: .8rem;
+      font-weight: 700;
+      text-decoration: none;
+    }
+
+    .product-description,
+    .product-price {
+      color: #555;
+      font-size: .72rem;
+    }
+
+    .product-price {
+      font-weight: 700;
+    }
+
+    /* Footer */
+    footer {
+      border-top: 1px solid #444;
+      background: #fff;
+      padding: 16px 0;
+      margin-top: 5px;
+    }
+
+    .footer-links a {
+      color: #555;
+      text-decoration: none;
+      font-size: .8rem;
+    }
+
+    .footer-links a:hover {
+      color: var(--italian-red);
+    }
+
+    .social-icons i {
+      color: #777;
+      font-size: 1rem;
+      margin-right: 10px;
+    }
+
+    .newsletter-label {
+      font-size: .78rem;
+      color: #555;
+      margin-bottom: 5px;
+    }
+
+    .newsletter .form-control,
+    .newsletter .btn {
+      border-radius: 0;
+      font-size: .78rem;
+    }
+
+    .newsletter .btn {
+      background: var(--italian-red);
+      border-color: var(--italian-red);
+      color: white;
+    }
+
+    @media (max-width: 767.98px) {
+      .topbar {
+        padding: 12px 0;
+      }
+
+      .hero {
+        padding: 25px 0;
+      }
+
+      .hero-image {
+        margin-top: 20px;
+        height: 220px;
+      }
+
+      .account-bar {
+        justify-content: center;
+      }
+
+      .products-section {
+        padding-top: 25px;
+      }
+    }
