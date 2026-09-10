@@ -3,7 +3,8 @@
     width: 200px;
     height: 200px;
     border-radius: 50%;
-    object-fit: cover;
+    object-fit: contain;   /* antes: cover */
+    background: #fff;      /* nuevo: rellena espacios vacíos */
     border: 3px solid rgba(255, 255, 255, 0.6);
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
     margin: 0 auto 15px auto;
