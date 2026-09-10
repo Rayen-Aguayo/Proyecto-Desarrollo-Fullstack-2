@@ -1,7 +1,7 @@
 .logo-circle{
     display: block;
-    width: 200px;
-    height: 200px;
+    width: 260px;
+    height: 260px;
     border-radius: 50%;
     object-fit: cover;
     border: 3px solid rgba(255, 255, 255, 0.6);
