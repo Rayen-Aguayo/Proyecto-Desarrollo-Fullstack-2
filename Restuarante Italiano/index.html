@@ -27,6 +27,12 @@
   <!-- Main CSS File -->
   <link href="assets/css/main.css" rel="stylesheet">
 
+  <!-- Font Awesome (íconos del carrito) -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+  <!-- Carrito de Compras CSS -->
+  <link href="assets/css/cart.css" rel="stylesheet">
+
 </head>
 
 <body class="index-page">
@@ -46,6 +52,12 @@
           <li><a href="#about">Nosotros</a></li>
           <li><a href="#menu">Menú</a></li>
           <li><a href="#events">Eventos</a></li>
+          <li>
+            <a href="#" id="jsCartNavToggle" class="nav-cart-link">
+              <i class="fa-solid fa-cart-shopping"></i>
+              <span id="jsCartCountNav" class="cart-count">0</span>
+            </a>
+          </li>
         </ul>
         <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
       </nav>
@@ -267,69 +279,87 @@
             <div class="row gy-5">
 
               <div class="col-lg-4 menu-item">
-                <a href="assets/img/menu/menu-item-1.png" class="glightbox"><img src="https://images.unsplash.com/photo-1574071318508-1cdbab80d002?auto=format&fit=crop&w=700&q=80" class="menu-img img-fluid" alt=""></a>
-                <h4>Pizza Margherita</h4>
+                <a href="#" class="menu-img-link" data-action="view-detail"><img src="https://images.unsplash.com/photo-1574071318508-1cdbab80d002?auto=format&fit=crop&w=700&q=80" class="menu-img img-fluid" alt=""></a>
+                <h4><a href="#" class="menu-title-link" data-action="view-detail">Pizza Margherita</a></h4>
                 <p class="ingredients">
                   Tomate, mozzarella y albahaca
                 </p>
-                <p class="price">
-                  $9.900
-                </p>
+                <div class="menu-item__footer">
+                  <p class="price">
+                    $9.900
+                  </p>
+                  <a href="#" class="add-to-cart-btn" data-btn-action="add-btn-cart" data-modal="#jsModalCarrito"><i class="fa-solid fa-cart-plus"></i> Agregar</a>
+                </div>
               </div><!-- Menu Item -->
 
               <div class="col-lg-4 menu-item">
-                <a href="assets/img/menu/menu-item-2.png" class="glightbox"><img src="https://images.unsplash.com/photo-1551183053-bf91a1d81141?auto=format&fit=crop&w=700&q=80" class="menu-img img-fluid" alt=""></a>
-                <h4>Pasta al Pesto</h4>
+                <a href="#" class="menu-img-link" data-action="view-detail"><img src="https://images.unsplash.com/photo-1551183053-bf91a1d81141?auto=format&fit=crop&w=700&q=80" class="menu-img img-fluid" alt=""></a>
+                <h4><a href="#" class="menu-title-link" data-action="view-detail">Pasta al Pesto</a></h4>
                 <p class="ingredients">
                   Pesto, parmesano y albahaca
                 </p>
-                <p class="price">
-                  $10.900
-                </p>
+                <div class="menu-item__footer">
+                  <p class="price">
+                    $10.900
+                  </p>
+                  <a href="#" class="add-to-cart-btn" data-btn-action="add-btn-cart" data-modal="#jsModalCarrito"><i class="fa-solid fa-cart-plus"></i> Agregar</a>
+                </div>
               </div><!-- Menu Item -->
 
               <div class="col-lg-4 menu-item">
-                <a href="assets/img/menu/menu-item-3.png" class="glightbox"><img src="https://images.unsplash.com/photo-1547592180-85f173990554?auto=format&fit=crop&w=700&q=80" class="menu-img img-fluid" alt=""></a>
-                <h4>Lasagna della Nonna</h4>
+                <a href="#" class="menu-img-link" data-action="view-detail"><img src="https://images.unsplash.com/photo-1547592180-85f173990554?auto=format&fit=crop&w=700&q=80" class="menu-img img-fluid" alt=""></a>
+                <h4><a href="#" class="menu-title-link" data-action="view-detail">Lasagna della Nonna</a></h4>
                 <p class="ingredients">
                   Carne, pasta, salsa y queso
                 </p>
-                <p class="price">
-                  $11.900
-                </p>
+                <div class="menu-item__footer">
+                  <p class="price">
+                    $11.900
+                  </p>
+                  <a href="#" class="add-to-cart-btn" data-btn-action="add-btn-cart" data-modal="#jsModalCarrito"><i class="fa-solid fa-cart-plus"></i> Agregar</a>
+                </div>
               </div><!-- Menu Item -->
 
               <div class="col-lg-4 menu-item">
-                <a href="assets/img/menu/menu-item-4.png" class="glightbox"><img src="https://images.unsplash.com/photo-1571997478779-2adcbbe9ab2f?auto=format&fit=crop&w=700&q=80" class="menu-img img-fluid" alt=""></a>
-                <h4>Pizza Prosciutto</h4>
+                <a href="#" class="menu-img-link" data-action="view-detail"><img src="https://images.unsplash.com/photo-1571997478779-2adcbbe9ab2f?auto=format&fit=crop&w=700&q=80" class="menu-img img-fluid" alt=""></a>
+                <h4><a href="#" class="menu-title-link" data-action="view-detail">Pizza Prosciutto</a></h4>
                 <p class="ingredients">
                   Prosciutto, mozzarella y rúcula
                 </p>
-                <p class="price">
-                  $12.500
-                </p>
+                <div class="menu-item__footer">
+                  <p class="price">
+                    $12.500
+                  </p>
+                  <a href="#" class="add-to-cart-btn" data-btn-action="add-btn-cart" data-modal="#jsModalCarrito"><i class="fa-solid fa-cart-plus"></i> Agregar</a>
+                </div>
               </div><!-- Menu Item -->
 
               <div class="col-lg-4 menu-item">
-                <a href="assets/img/menu/menu-item-5.png" class="glightbox"><img src="https://images.unsplash.com/photo-1473093295043-cdd812d0e601?auto=format&fit=crop&w=700&q=80" class="menu-img img-fluid" alt=""></a>
-                <h4>Spaghetti Carbonara</h4>
+                <a href="#" class="menu-img-link" data-action="view-detail"><img src="https://images.unsplash.com/photo-1473093295043-cdd812d0e601?auto=format&fit=crop&w=700&q=80" class="menu-img img-fluid" alt=""></a>
+                <h4><a href="#" class="menu-title-link" data-action="view-detail">Spaghetti Carbonara</a></h4>
                 <p class="ingredients">
                   Pasta, huevo, queso y panceta
                 </p>
-                <p class="price">
-                  $10.500
-                </p>
+                <div class="menu-item__footer">
+                  <p class="price">
+                    $10.500
+                  </p>
+                  <a href="#" class="add-to-cart-btn" data-btn-action="add-btn-cart" data-modal="#jsModalCarrito"><i class="fa-solid fa-cart-plus"></i> Agregar</a>
+                </div>
               </div><!-- Menu Item -->
 
               <div class="col-lg-4 menu-item">
-                <a href="assets/img/menu/menu-item-6.png" class="glightbox"><img src="https://images.unsplash.com/photo-1563379926898-05f4575a45d8?auto=format&fit=crop&w=700&q=80" class="menu-img img-fluid" alt=""></a>
-                <h4>Ravioli di Ricotta</h4>
+                <a href="#" class="menu-img-link" data-action="view-detail"><img src="https://images.unsplash.com/photo-1563379926898-05f4575a45d8?auto=format&fit=crop&w=700&q=80" class="menu-img img-fluid" alt=""></a>
+                <h4><a href="#" class="menu-title-link" data-action="view-detail">Ravioli di Ricotta</a></h4>
                 <p class="ingredients">
                   Ricotta, espinaca y salsa pomodoro
                 </p>
-                <p class="price">
-                  $11.500
-                </p>
+                <div class="menu-item__footer">
+                  <p class="price">
+                    $11.500
+                  </p>
+                  <a href="#" class="add-to-cart-btn" data-btn-action="add-btn-cart" data-modal="#jsModalCarrito"><i class="fa-solid fa-cart-plus"></i> Agregar</a>
+                </div>
               </div><!-- Menu Item -->
 
             </div>
@@ -345,69 +375,87 @@
             <div class="row gy-5">
 
               <div class="col-lg-4 menu-item">
-                <a href="assets/img/menu/menu-item-1.png" class="glightbox"><img src="https://images.unsplash.com/photo-1574071318508-1cdbab80d002?auto=format&fit=crop&w=700&q=80" class="menu-img img-fluid" alt=""></a>
-                <h4>Pizza Margherita</h4>
+                <a href="#" class="menu-img-link" data-action="view-detail"><img src="https://images.unsplash.com/photo-1574071318508-1cdbab80d002?auto=format&fit=crop&w=700&q=80" class="menu-img img-fluid" alt=""></a>
+                <h4><a href="#" class="menu-title-link" data-action="view-detail">Pizza Margherita</a></h4>
                 <p class="ingredients">
                   Tomate, mozzarella y albahaca
                 </p>
-                <p class="price">
-                  $9.900
-                </p>
+                <div class="menu-item__footer">
+                  <p class="price">
+                    $9.900
+                  </p>
+                  <a href="#" class="add-to-cart-btn" data-btn-action="add-btn-cart" data-modal="#jsModalCarrito"><i class="fa-solid fa-cart-plus"></i> Agregar</a>
+                </div>
               </div><!-- Menu Item -->
 
               <div class="col-lg-4 menu-item">
-                <a href="assets/img/menu/menu-item-2.png" class="glightbox"><img src="https://images.unsplash.com/photo-1551183053-bf91a1d81141?auto=format&fit=crop&w=700&q=80" class="menu-img img-fluid" alt=""></a>
-                <h4>Pasta al Pesto</h4>
+                <a href="#" class="menu-img-link" data-action="view-detail"><img src="https://images.unsplash.com/photo-1551183053-bf91a1d81141?auto=format&fit=crop&w=700&q=80" class="menu-img img-fluid" alt=""></a>
+                <h4><a href="#" class="menu-title-link" data-action="view-detail">Pasta al Pesto</a></h4>
                 <p class="ingredients">
                   Pesto, parmesano y albahaca
                 </p>
-                <p class="price">
-                  $10.900
-                </p>
+                <div class="menu-item__footer">
+                  <p class="price">
+                    $10.900
+                  </p>
+                  <a href="#" class="add-to-cart-btn" data-btn-action="add-btn-cart" data-modal="#jsModalCarrito"><i class="fa-solid fa-cart-plus"></i> Agregar</a>
+                </div>
               </div><!-- Menu Item -->
 
               <div class="col-lg-4 menu-item">
-                <a href="assets/img/menu/menu-item-3.png" class="glightbox"><img src="https://images.unsplash.com/photo-1547592180-85f173990554?auto=format&fit=crop&w=700&q=80" class="menu-img img-fluid" alt=""></a>
-                <h4>Lasagna della Nonna</h4>
+                <a href="#" class="menu-img-link" data-action="view-detail"><img src="https://images.unsplash.com/photo-1547592180-85f173990554?auto=format&fit=crop&w=700&q=80" class="menu-img img-fluid" alt=""></a>
+                <h4><a href="#" class="menu-title-link" data-action="view-detail">Lasagna della Nonna</a></h4>
                 <p class="ingredients">
                   Carne, pasta, salsa y queso
                 </p>
-                <p class="price">
-                  $11.900
-                </p>
+                <div class="menu-item__footer">
+                  <p class="price">
+                    $11.900
+                  </p>
+                  <a href="#" class="add-to-cart-btn" data-btn-action="add-btn-cart" data-modal="#jsModalCarrito"><i class="fa-solid fa-cart-plus"></i> Agregar</a>
+                </div>
               </div><!-- Menu Item -->
 
               <div class="col-lg-4 menu-item">
-                <a href="assets/img/menu/menu-item-4.png" class="glightbox"><img src="https://images.unsplash.com/photo-1571997478779-2adcbbe9ab2f?auto=format&fit=crop&w=700&q=80" class="menu-img img-fluid" alt=""></a>
-                <h4>Pizza Prosciutto</h4>
+                <a href="#" class="menu-img-link" data-action="view-detail"><img src="https://images.unsplash.com/photo-1571997478779-2adcbbe9ab2f?auto=format&fit=crop&w=700&q=80" class="menu-img img-fluid" alt=""></a>
+                <h4><a href="#" class="menu-title-link" data-action="view-detail">Pizza Prosciutto</a></h4>
                 <p class="ingredients">
                   Prosciutto, mozzarella y rúcula
                 </p>
-                <p class="price">
-                  $12.500
-                </p>
+                <div class="menu-item__footer">
+                  <p class="price">
+                    $12.500
+                  </p>
+                  <a href="#" class="add-to-cart-btn" data-btn-action="add-btn-cart" data-modal="#jsModalCarrito"><i class="fa-solid fa-cart-plus"></i> Agregar</a>
+                </div>
               </div><!-- Menu Item -->
 
               <div class="col-lg-4 menu-item">
-                <a href="assets/img/menu/menu-item-5.png" class="glightbox"><img src="https://images.unsplash.com/photo-1473093295043-cdd812d0e601?auto=format&fit=crop&w=700&q=80" class="menu-img img-fluid" alt=""></a>
-                <h4>Spaghetti Carbonara</h4>
+                <a href="#" class="menu-img-link" data-action="view-detail"><img src="https://images.unsplash.com/photo-1473093295043-cdd812d0e601?auto=format&fit=crop&w=700&q=80" class="menu-img img-fluid" alt=""></a>
+                <h4><a href="#" class="menu-title-link" data-action="view-detail">Spaghetti Carbonara</a></h4>
                 <p class="ingredients">
                   Pasta, huevo, queso y panceta
                 </p>
-                <p class="price">
-                  $10.500
-                </p>
+                <div class="menu-item__footer">
+                  <p class="price">
+                    $10.500
+                  </p>
+                  <a href="#" class="add-to-cart-btn" data-btn-action="add-btn-cart" data-modal="#jsModalCarrito"><i class="fa-solid fa-cart-plus"></i> Agregar</a>
+                </div>
               </div><!-- Menu Item -->
 
               <div class="col-lg-4 menu-item">
-                <a href="assets/img/menu/menu-item-6.png" class="glightbox"><img src="https://images.unsplash.com/photo-1563379926898-05f4575a45d8?auto=format&fit=crop&w=700&q=80" class="menu-img img-fluid" alt=""></a>
-                <h4>Ravioli di Ricotta</h4>
+                <a href="#" class="menu-img-link" data-action="view-detail"><img src="https://images.unsplash.com/photo-1563379926898-05f4575a45d8?auto=format&fit=crop&w=700&q=80" class="menu-img img-fluid" alt=""></a>
+                <h4><a href="#" class="menu-title-link" data-action="view-detail">Ravioli di Ricotta</a></h4>
                 <p class="ingredients">
                   Ricotta, espinaca y salsa pomodoro
                 </p>
-                <p class="price">
-                  $11.500
-                </p>
+                <div class="menu-item__footer">
+                  <p class="price">
+                    $11.500
+                  </p>
+                  <a href="#" class="add-to-cart-btn" data-btn-action="add-btn-cart" data-modal="#jsModalCarrito"><i class="fa-solid fa-cart-plus"></i> Agregar</a>
+                </div>
               </div><!-- Menu Item -->
 
             </div>
@@ -423,69 +471,87 @@
             <div class="row gy-5">
 
               <div class="col-lg-4 menu-item">
-                <a href="assets/img/menu/menu-item-1.png" class="glightbox"><img src="https://images.unsplash.com/photo-1574071318508-1cdbab80d002?auto=format&fit=crop&w=700&q=80" class="menu-img img-fluid" alt=""></a>
-                <h4>Pizza Margherita</h4>
+                <a href="#" class="menu-img-link" data-action="view-detail"><img src="https://images.unsplash.com/photo-1574071318508-1cdbab80d002?auto=format&fit=crop&w=700&q=80" class="menu-img img-fluid" alt=""></a>
+                <h4><a href="#" class="menu-title-link" data-action="view-detail">Pizza Margherita</a></h4>
                 <p class="ingredients">
                   Tomate, mozzarella y albahaca
                 </p>
-                <p class="price">
-                  $9.900
-                </p>
+                <div class="menu-item__footer">
+                  <p class="price">
+                    $9.900
+                  </p>
+                  <a href="#" class="add-to-cart-btn" data-btn-action="add-btn-cart" data-modal="#jsModalCarrito"><i class="fa-solid fa-cart-plus"></i> Agregar</a>
+                </div>
               </div><!-- Menu Item -->
 
               <div class="col-lg-4 menu-item">
-                <a href="assets/img/menu/menu-item-2.png" class="glightbox"><img src="https://images.unsplash.com/photo-1551183053-bf91a1d81141?auto=format&fit=crop&w=700&q=80" class="menu-img img-fluid" alt=""></a>
-                <h4>Pasta al Pesto</h4>
+                <a href="#" class="menu-img-link" data-action="view-detail"><img src="https://images.unsplash.com/photo-1551183053-bf91a1d81141?auto=format&fit=crop&w=700&q=80" class="menu-img img-fluid" alt=""></a>
+                <h4><a href="#" class="menu-title-link" data-action="view-detail">Pasta al Pesto</a></h4>
                 <p class="ingredients">
                   Pesto, parmesano y albahaca
                 </p>
-                <p class="price">
-                  $10.900
-                </p>
+                <div class="menu-item__footer">
+                  <p class="price">
+                    $10.900
+                  </p>
+                  <a href="#" class="add-to-cart-btn" data-btn-action="add-btn-cart" data-modal="#jsModalCarrito"><i class="fa-solid fa-cart-plus"></i> Agregar</a>
+                </div>
               </div><!-- Menu Item -->
 
               <div class="col-lg-4 menu-item">
-                <a href="assets/img/menu/menu-item-3.png" class="glightbox"><img src="https://images.unsplash.com/photo-1547592180-85f173990554?auto=format&fit=crop&w=700&q=80" class="menu-img img-fluid" alt=""></a>
-                <h4>Lasagna della Nonna</h4>
+                <a href="#" class="menu-img-link" data-action="view-detail"><img src="https://images.unsplash.com/photo-1547592180-85f173990554?auto=format&fit=crop&w=700&q=80" class="menu-img img-fluid" alt=""></a>
+                <h4><a href="#" class="menu-title-link" data-action="view-detail">Lasagna della Nonna</a></h4>
                 <p class="ingredients">
                   Carne, pasta, salsa y queso
                 </p>
-                <p class="price">
-                  $11.900
-                </p>
+                <div class="menu-item__footer">
+                  <p class="price">
+                    $11.900
+                  </p>
+                  <a href="#" class="add-to-cart-btn" data-btn-action="add-btn-cart" data-modal="#jsModalCarrito"><i class="fa-solid fa-cart-plus"></i> Agregar</a>
+                </div>
               </div><!-- Menu Item -->
 
               <div class="col-lg-4 menu-item">
-                <a href="assets/img/menu/menu-item-4.png" class="glightbox"><img src="https://images.unsplash.com/photo-1571997478779-2adcbbe9ab2f?auto=format&fit=crop&w=700&q=80" class="menu-img img-fluid" alt=""></a>
-                <h4>Pizza Prosciutto</h4>
+                <a href="#" class="menu-img-link" data-action="view-detail"><img src="https://images.unsplash.com/photo-1571997478779-2adcbbe9ab2f?auto=format&fit=crop&w=700&q=80" class="menu-img img-fluid" alt=""></a>
+                <h4><a href="#" class="menu-title-link" data-action="view-detail">Pizza Prosciutto</a></h4>
                 <p class="ingredients">
                   Prosciutto, mozzarella y rúcula
                 </p>
-                <p class="price">
-                  $12.500
-                </p>
+                <div class="menu-item__footer">
+                  <p class="price">
+                    $12.500
+                  </p>
+                  <a href="#" class="add-to-cart-btn" data-btn-action="add-btn-cart" data-modal="#jsModalCarrito"><i class="fa-solid fa-cart-plus"></i> Agregar</a>
+                </div>
               </div><!-- Menu Item -->
 
               <div class="col-lg-4 menu-item">
-                <a href="assets/img/menu/menu-item-5.png" class="glightbox"><img src="https://images.unsplash.com/photo-1473093295043-cdd812d0e601?auto=format&fit=crop&w=700&q=80" class="menu-img img-fluid" alt=""></a>
-                <h4>Spaghetti Carbonara</h4>
+                <a href="#" class="menu-img-link" data-action="view-detail"><img src="https://images.unsplash.com/photo-1473093295043-cdd812d0e601?auto=format&fit=crop&w=700&q=80" class="menu-img img-fluid" alt=""></a>
+                <h4><a href="#" class="menu-title-link" data-action="view-detail">Spaghetti Carbonara</a></h4>
                 <p class="ingredients">
                   Pasta, huevo, queso y panceta
                 </p>
-                <p class="price">
-                  $10.500
-                </p>
+                <div class="menu-item__footer">
+                  <p class="price">
+                    $10.500
+                  </p>
+                  <a href="#" class="add-to-cart-btn" data-btn-action="add-btn-cart" data-modal="#jsModalCarrito"><i class="fa-solid fa-cart-plus"></i> Agregar</a>
+                </div>
               </div><!-- Menu Item -->
 
               <div class="col-lg-4 menu-item">
-                <a href="assets/img/menu/menu-item-6.png" class="glightbox"><img src="https://images.unsplash.com/photo-1563379926898-05f4575a45d8?auto=format&fit=crop&w=700&q=80" class="menu-img img-fluid" alt=""></a>
-                <h4>Ravioli di Ricotta</h4>
+                <a href="#" class="menu-img-link" data-action="view-detail"><img src="https://images.unsplash.com/photo-1563379926898-05f4575a45d8?auto=format&fit=crop&w=700&q=80" class="menu-img img-fluid" alt=""></a>
+                <h4><a href="#" class="menu-title-link" data-action="view-detail">Ravioli di Ricotta</a></h4>
                 <p class="ingredients">
                   Ricotta, espinaca y salsa pomodoro
                 </p>
-                <p class="price">
-                  $11.500
-                </p>
+                <div class="menu-item__footer">
+                  <p class="price">
+                    $11.500
+                  </p>
+                  <a href="#" class="add-to-cart-btn" data-btn-action="add-btn-cart" data-modal="#jsModalCarrito"><i class="fa-solid fa-cart-plus"></i> Agregar</a>
+                </div>
               </div><!-- Menu Item -->
 
             </div>
@@ -501,69 +567,87 @@
             <div class="row gy-5">
 
               <div class="col-lg-4 menu-item">
-                <a href="assets/img/menu/menu-item-1.png" class="glightbox"><img src="https://images.unsplash.com/photo-1574071318508-1cdbab80d002?auto=format&fit=crop&w=700&q=80" class="menu-img img-fluid" alt=""></a>
-                <h4>Pizza Margherita</h4>
+                <a href="#" class="menu-img-link" data-action="view-detail"><img src="https://images.unsplash.com/photo-1574071318508-1cdbab80d002?auto=format&fit=crop&w=700&q=80" class="menu-img img-fluid" alt=""></a>
+                <h4><a href="#" class="menu-title-link" data-action="view-detail">Pizza Margherita</a></h4>
                 <p class="ingredients">
                   Tomate, mozzarella y albahaca
                 </p>
-                <p class="price">
-                  $9.900
-                </p>
+                <div class="menu-item__footer">
+                  <p class="price">
+                    $9.900
+                  </p>
+                  <a href="#" class="add-to-cart-btn" data-btn-action="add-btn-cart" data-modal="#jsModalCarrito"><i class="fa-solid fa-cart-plus"></i> Agregar</a>
+                </div>
               </div><!-- Menu Item -->
 
               <div class="col-lg-4 menu-item">
-                <a href="assets/img/menu/menu-item-2.png" class="glightbox"><img src="https://images.unsplash.com/photo-1551183053-bf91a1d81141?auto=format&fit=crop&w=700&q=80" class="menu-img img-fluid" alt=""></a>
-                <h4>Pasta al Pesto</h4>
+                <a href="#" class="menu-img-link" data-action="view-detail"><img src="https://images.unsplash.com/photo-1551183053-bf91a1d81141?auto=format&fit=crop&w=700&q=80" class="menu-img img-fluid" alt=""></a>
+                <h4><a href="#" class="menu-title-link" data-action="view-detail">Pasta al Pesto</a></h4>
                 <p class="ingredients">
                   Pesto, parmesano y albahaca
                 </p>
-                <p class="price">
-                  $10.900
-                </p>
+                <div class="menu-item__footer">
+                  <p class="price">
+                    $10.900
+                  </p>
+                  <a href="#" class="add-to-cart-btn" data-btn-action="add-btn-cart" data-modal="#jsModalCarrito"><i class="fa-solid fa-cart-plus"></i> Agregar</a>
+                </div>
               </div><!-- Menu Item -->
 
               <div class="col-lg-4 menu-item">
-                <a href="assets/img/menu/menu-item-3.png" class="glightbox"><img src="https://images.unsplash.com/photo-1547592180-85f173990554?auto=format&fit=crop&w=700&q=80" class="menu-img img-fluid" alt=""></a>
-                <h4>Lasagna della Nonna</h4>
+                <a href="#" class="menu-img-link" data-action="view-detail"><img src="https://images.unsplash.com/photo-1547592180-85f173990554?auto=format&fit=crop&w=700&q=80" class="menu-img img-fluid" alt=""></a>
+                <h4><a href="#" class="menu-title-link" data-action="view-detail">Lasagna della Nonna</a></h4>
                 <p class="ingredients">
                   Carne, pasta, salsa y queso
                 </p>
-                <p class="price">
-                  $11.900
-                </p>
+                <div class="menu-item__footer">
+                  <p class="price">
+                    $11.900
+                  </p>
+                  <a href="#" class="add-to-cart-btn" data-btn-action="add-btn-cart" data-modal="#jsModalCarrito"><i class="fa-solid fa-cart-plus"></i> Agregar</a>
+                </div>
               </div><!-- Menu Item -->
 
               <div class="col-lg-4 menu-item">
-                <a href="assets/img/menu/menu-item-4.png" class="glightbox"><img src="https://images.unsplash.com/photo-1571997478779-2adcbbe9ab2f?auto=format&fit=crop&w=700&q=80" class="menu-img img-fluid" alt=""></a>
-                <h4>Pizza Prosciutto</h4>
+                <a href="#" class="menu-img-link" data-action="view-detail"><img src="https://images.unsplash.com/photo-1571997478779-2adcbbe9ab2f?auto=format&fit=crop&w=700&q=80" class="menu-img img-fluid" alt=""></a>
+                <h4><a href="#" class="menu-title-link" data-action="view-detail">Pizza Prosciutto</a></h4>
                 <p class="ingredients">
                   Prosciutto, mozzarella y rúcula
                 </p>
-                <p class="price">
-                  $12.500
-                </p>
+                <div class="menu-item__footer">
+                  <p class="price">
+                    $12.500
+                  </p>
+                  <a href="#" class="add-to-cart-btn" data-btn-action="add-btn-cart" data-modal="#jsModalCarrito"><i class="fa-solid fa-cart-plus"></i> Agregar</a>
+                </div>
               </div><!-- Menu Item -->
 
               <div class="col-lg-4 menu-item">
-                <a href="assets/img/menu/menu-item-5.png" class="glightbox"><img src="https://images.unsplash.com/photo-1473093295043-cdd812d0e601?auto=format&fit=crop&w=700&q=80" class="menu-img img-fluid" alt=""></a>
-                <h4>Spaghetti Carbonara</h4>
+                <a href="#" class="menu-img-link" data-action="view-detail"><img src="https://images.unsplash.com/photo-1473093295043-cdd812d0e601?auto=format&fit=crop&w=700&q=80" class="menu-img img-fluid" alt=""></a>
+                <h4><a href="#" class="menu-title-link" data-action="view-detail">Spaghetti Carbonara</a></h4>
                 <p class="ingredients">
                   Pasta, huevo, queso y panceta
                 </p>
-                <p class="price">
-                  $10.500
-                </p>
+                <div class="menu-item__footer">
+                  <p class="price">
+                    $10.500
+                  </p>
+                  <a href="#" class="add-to-cart-btn" data-btn-action="add-btn-cart" data-modal="#jsModalCarrito"><i class="fa-solid fa-cart-plus"></i> Agregar</a>
+                </div>
               </div><!-- Menu Item -->
 
               <div class="col-lg-4 menu-item">
-                <a href="assets/img/menu/menu-item-6.png" class="glightbox"><img src="https://images.unsplash.com/photo-1563379926898-05f4575a45d8?auto=format&fit=crop&w=700&q=80" class="menu-img img-fluid" alt=""></a>
-                <h4>Ravioli di Ricotta</h4>
+                <a href="#" class="menu-img-link" data-action="view-detail"><img src="https://images.unsplash.com/photo-1563379926898-05f4575a45d8?auto=format&fit=crop&w=700&q=80" class="menu-img img-fluid" alt=""></a>
+                <h4><a href="#" class="menu-title-link" data-action="view-detail">Ravioli di Ricotta</a></h4>
                 <p class="ingredients">
                   Ricotta, espinaca y salsa pomodoro
                 </p>
-                <p class="price">
-                  $11.500
-                </p>
+                <div class="menu-item__footer">
+                  <p class="price">
+                    $11.500
+                  </p>
+                  <a href="#" class="add-to-cart-btn" data-btn-action="add-btn-cart" data-modal="#jsModalCarrito"><i class="fa-solid fa-cart-plus"></i> Agregar</a>
+                </div>
               </div><!-- Menu Item -->
 
             </div>
@@ -665,6 +749,69 @@
 
   </footer>
 
+  <!-- Botón flotante del carrito -->
+  <button type="button" id="jsCartToggle" class="cart-toggle" aria-label="Ver carrito">
+    <i class="fa-solid fa-cart-shopping"></i>
+    <span id="jsCartCount" class="cart-count">0</span>
+  </button>
+
+  <!-- MODAL DETALLE DEL PRODUCTO -->
+  <div class="modal" id="jsModalDetalle">
+    <div class="modal__container modal__container--detail">
+      <button type="button" class="modal__close fa-solid fa-xmark jsModalClose"></button>
+
+      <div class="modal__info">
+        <div class="detail__image">
+          <img id="jsDetailImg" src="" alt="">
+        </div>
+
+        <div class="detail__content">
+          <h2 id="jsDetailName"></h2>
+          <p class="detail__ingredients" id="jsDetailIngredients"></p>
+          <p class="detail__price" id="jsDetailPrice"></p>
+
+          <button type="button" class="btn-primary" id="jsDetailAddBtn">
+            <i class="fa-solid fa-cart-plus"></i> Agregar al carrito
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- MODAL CARRITO -->
+  <div class="modal" id="jsModalCarrito">
+    <div class="modal__container">
+      <button type="button" class="modal__close fa-solid fa-xmark jsModalClose"></button>
+
+      <div class="modal__info">
+        <div class="modal__header">
+          <h2><i class="fa-brands fa-opencart"></i> Carrito</h2>
+        </div>
+
+        <div class="modal__body">
+          <div class="modal__list" id="jsModalList">
+            <p class="modal__empty">Tu carrito está vacío</p>
+          </div>
+        </div>
+
+        <div class="modal__footer">
+          <div class="modal__list-price">
+            <ul>
+              <li>Subtotal: <strong id="jsSubtotal">$0</strong></li>
+              <li>Descuento: <strong>$0</strong></li>
+            </ul>
+            <h4 class="modal__total-cart" id="jsTotalCart">Total: $0</h4>
+          </div>
+
+          <div class="modal__btns">
+            <a href="#" class="btn-border jsModalClose">Seguir viendo el menú</a>
+            <a href="#" class="btn-primary">Realizar Pedido</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
   <!-- Scroll Top -->
   <a href="#" id="scroll-top" class="scroll-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
 
@@ -682,6 +829,10 @@
   <!-- Main JS File -->
   <script src="assets/js/main.js"></script>
 
+  <!-- Carrito de Compras JS -->
+  <script src="assets/js/cart.js"></script>
+
 </body>
 
 </html>
+
