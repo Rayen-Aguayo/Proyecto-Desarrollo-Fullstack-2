@@ -1,7 +1,7 @@
 .login-logo {
     display: block;
-    width: 130px;
-    height: 130px;
+    width: 190px;   /* antes 130px */
+    height: 190px;  /* antes 130px */
     margin: 0 auto;
     border-radius: 50%;
     object-fit: cover;
