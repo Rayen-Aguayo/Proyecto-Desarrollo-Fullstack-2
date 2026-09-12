@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+  <title>Panel Administrativo | Restaurante La Cucina Nostra</title>
+
+  <!-- Favicons -->
+  <link href="../assets/img/Logo.png" rel="icon">
+  <link href="../assets/img/apple-touch-icon.png" rel="apple-touch-icon">
+
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com" rel="preconnect">
+  <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&family=Inter:wght@100;200;300;400;500;600;700;800;900&family=Amatic+SC:wght@400;700&display=swap" rel="stylesheet">
+
+  <!-- Vendor CSS Files (mismos que index.html) -->
+  <link href="../assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link href="../assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+
+  <!-- Main CSS File (identidad visual del sitio) -->
+  <link href="../assets/css/main.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+  <!-- Panel administrativo -->
+  <link href="../assets/css/admin.css" rel="stylesheet">
+</head>
+
+<body class="admin-page">
+
+  <!-- ===== Mismo header que index.html ===== -->
+  <header id="header" class="header d-flex align-items-center sticky-top">
+    <div class="container position-relative d-flex align-items-center justify-content-between">
+
+      <a href="../index.html" class="logo d-flex align-items-center me-auto me-xl-0">
+        <img src="../assets/img/Logo.png" alt="Logo" class="logo-circle">
+        <h1 class="sitename">Restaurante La Cucina Nostra</h1>
+        <span>.</span>
+      </a>
+
+      <nav id="navmenu" class="navmenu">
+        <ul>
+          <li><a href="home.html" class="active">Panel<br></a></li>
+          <li><a href="productos.html">Productos</a></li>
+          <li><a href="usuarios.html">Usuarios</a></li>
+          <li><a href="../index.html">Ver tienda</a></li>
+          <li><a href="#" onclick="cerrarSesionYRedirigir()">Cerrar sesión</a></li>
+        </ul>
+        <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
+      </nav>
+
+    </div>
+  </header>
+
+  <main class="main">
+    <div class="container">
+      <div class="admin-welcome">
+        <h2>Panel administrativo</h2>
+        <p>¡Hola, <span id="jsHolaNombre">Administrador</span>!</p>
+      </div>
+
+      <div class="admin-layout">
+
+        <!-- ===== Menú vertical ===== -->
+        <aside class="admin-nav">
+          <a href="home.html" class="nav-link active"><i class="fa-solid fa-gauge"></i> Inicio</a>
+          <a href="productos.html" class="nav-link"><i class="fa-solid fa-pizza-slice"></i> Productos</a>
+          <a href="usuarios.html" class="nav-link" id="jsNavUsuarios"><i class="fa-solid fa-users"></i> Usuarios</a>
+          <hr>
+          <div class="nav-user">
+            <div class="user-name" id="jsSidebarUserName">—</div>
+            <div class="user-role" id="jsSidebarUserRole">—</div>
+          </div>
+        </aside>
+
+        <!-- ===== Contenido ===== -->
+        <section class="admin-content">
+
+          <div class="row g-3 mb-4">
+            <div class="col-6 col-md-3">
+              <div class="stat-card">
+                <div class="stat-number" id="jsStatProductos">0</div>
+                <div class="stat-label">Productos</div>
+              </div>
+            </div>
+            <div class="col-6 col-md-3">
+              <div class="stat-card">
+                <div class="stat-number" id="jsStatUsuarios">0</div>
+                <div class="stat-label">Usuarios</div>
+              </div>
+            </div>
+            <div class="col-6 col-md-3">
+              <div class="stat-card is-alert">
+                <div class="stat-number" id="jsStatStockCritico">0</div>
+                <div class="stat-label">Stock crítico</div>
+              </div>
+            </div>
+            <div class="col-6 col-md-3">
+              <div class="stat-card">
+                <div class="stat-number" id="jsStatCategorias">0</div>
+                <div class="stat-label">Categorías</div>
+              </div>
+            </div>
+          </div>
+
+          <div class="admin-table-wrap">
+            <h3>Productos con stock bajo</h3>
+            <div class="table-responsive">
+              <table class="table admin-table mb-0">
+                <thead>
+                  <tr>
+                    <th>Producto</th>
+                    <th>Categoría</th>
+                    <th>Stock</th>
+                    <th>Stock crítico</th>
+                  </tr>
+                </thead>
+                <tbody id="jsTablaStockCritico"></tbody>
+              </table>
+              <p class="text-muted mt-3 mb-0" id="jsSinAlertas" style="display:none;">
+                No hay productos bajo su stock crítico por ahora.
+              </p>
+            </div>
+          </div>
+
+        </section>
+      </div>
+    </div>
+  </main>
+
+  <script src="../assets/js/db.js"></script>
+  <script src="../assets/js/admin-auth.js"></script>
+  <script>
+    aplicarPermisosSidebar();
+
+    const sesion = obtenerSesion();
+    document.getElementById("jsHolaNombre").textContent = sesion?.nombre || "Administrador";
+
+    const productos = obtenerProductos();
+    const usuarios = obtenerUsuarios();
+    const categorias = new Set(productos.map((p) => p.categoria));
+    const conStockCritico = productos.filter(
+      (p) => p.stockCritico !== "" && p.stockCritico !== undefined && p.stock <= Number(p.stockCritico)
+    );
+
+    document.getElementById("jsStatProductos").textContent = productos.length;
+    document.getElementById("jsStatUsuarios").textContent = usuarios.length;
+    document.getElementById("jsStatStockCritico").textContent = conStockCritico.length;
+    document.getElementById("jsStatCategorias").textContent = categorias.size;
+
+    const tbody = document.getElementById("jsTablaStockCritico");
+    if (conStockCritico.length === 0) {
+      document.getElementById("jsSinAlertas").style.display = "block";
+    } else {
+      conStockCritico.forEach((p) => {
+        const tr = document.createElement("tr");
+        tr.innerHTML = `
+          <td>${p.nombre}</td>
+          <td>${p.categoria}</td>
+          <td>${p.stock}</td>
+          <td><span class="badge badge-stock-critico">${p.stockCritico}</span></td>
+        `;
+        tbody.appendChild(tr);
+      });
+    }
+  </script>
+</body>
+
+</html>

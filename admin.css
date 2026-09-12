@@ -1,0 +1,245 @@
+/* =========================================================
+   admin.css — Panel administrativo
+   Usa el MISMO header, fondo y componentes que index.html
+   (variables de assets/css/main.css: --accent-color,
+   --heading-font, --default-font, --surface-color, etc.)
+   ========================================================= */
+
+.admin-page {
+  background-color: var(--background-color);
+  color: var(--default-color);
+}
+
+/* ---------- Barra de bienvenida (mismo lenguaje que .section-title) ---------- */
+.admin-welcome {
+  padding: 40px 0 10px;
+}
+
+.admin-welcome h2 {
+  font-size: 13px;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  color: color-mix(in srgb, var(--default-color), transparent 50%);
+  font-family: var(--default-font);
+  margin: 0;
+}
+
+.admin-welcome p {
+  font-family: var(--heading-font);
+  font-size: 44px;
+  color: var(--heading-color);
+  margin: 6px 0 0;
+}
+
+.admin-welcome p span {
+  color: var(--accent-color);
+}
+
+/* ---------- Layout ---------- */
+.admin-layout {
+  display: flex;
+  gap: 30px;
+  padding: 10px 0 60px;
+  align-items: flex-start;
+}
+
+/* ---------- Menú vertical (mismo estilo que las pestañas del menú) ---------- */
+.admin-nav {
+  width: 220px;
+  flex-shrink: 0;
+  background: var(--surface-color);
+  border-radius: 10px;
+  box-shadow: 0 2px 20px rgba(0, 0, 0, 0.06);
+  padding: 10px 0;
+}
+
+.admin-nav .nav-link {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 14px 22px;
+  color: color-mix(in srgb, var(--default-color), transparent 20%);
+  font-family: var(--default-font);
+  font-size: 15px;
+  border-left: 3px solid transparent;
+  transition: 0.3s;
+}
+
+.admin-nav .nav-link i {
+  font-size: 18px;
+  width: 20px;
+  text-align: center;
+}
+
+.admin-nav .nav-link:hover {
+  color: var(--accent-color);
+  border-left-color: color-mix(in srgb, var(--accent-color), transparent 60%);
+}
+
+.admin-nav .nav-link.active {
+  color: var(--accent-color);
+  border-left-color: var(--accent-color);
+  font-weight: 600;
+}
+
+.admin-nav hr {
+  margin: 10px 22px;
+  opacity: 0.1;
+}
+
+.admin-nav .nav-user {
+  padding: 4px 22px 6px;
+}
+
+.admin-nav .nav-user .user-name {
+  font-weight: 600;
+  font-size: 14px;
+  color: var(--heading-color);
+}
+
+.admin-nav .nav-user .user-role {
+  font-size: 12px;
+  color: var(--accent-color);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+/* ---------- Contenido ---------- */
+.admin-content {
+  flex: 1;
+  min-width: 0;
+}
+
+.admin-content h3 {
+  font-family: var(--heading-font);
+  font-size: 32px;
+  color: var(--heading-color);
+  margin-bottom: 18px;
+}
+
+/* ---------- Tarjetas de estadísticas (mismo look de .menu-item) ---------- */
+.stat-card {
+  background: var(--surface-color);
+  border-radius: 10px;
+  padding: 24px;
+  text-align: center;
+  box-shadow: 0 2px 20px rgba(0, 0, 0, 0.06);
+  border-bottom: 3px solid var(--accent-color);
+}
+
+.stat-card .stat-number {
+  font-family: var(--heading-font);
+  font-size: 46px;
+  color: var(--heading-color);
+  line-height: 1;
+}
+
+.stat-card .stat-label {
+  font-family: var(--default-font);
+  font-size: 13px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  color: color-mix(in srgb, var(--default-color), transparent 30%);
+  margin-top: 6px;
+}
+
+.stat-card.is-alert {
+  border-bottom-color: #f7b267;
+}
+
+/* ---------- Tabla ---------- */
+.admin-table-wrap {
+  background: var(--surface-color);
+  border-radius: 10px;
+  padding: 24px;
+  box-shadow: 0 2px 20px rgba(0, 0, 0, 0.06);
+}
+
+.admin-table thead th {
+  font-family: var(--default-font);
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  color: color-mix(in srgb, var(--default-color), transparent 40%);
+  border-bottom-width: 1px;
+}
+
+.admin-table td {
+  vertical-align: middle;
+  font-family: var(--default-font);
+}
+
+.admin-table img.thumb {
+  width: 46px;
+  height: 46px;
+  object-fit: cover;
+  border-radius: 8px;
+}
+
+/* ---------- Botones estilo del sitio (pill, mismo que .btn-get-started) ---------- */
+.btn-admin {
+  color: var(--contrast-color);
+  background: var(--accent-color);
+  font-family: var(--default-font);
+  font-weight: 400;
+  font-size: 14px;
+  letter-spacing: 0.5px;
+  display: inline-block;
+  padding: 8px 24px;
+  border-radius: 50px;
+  border: none;
+  transition: 0.3s;
+}
+
+.btn-admin:hover {
+  color: var(--contrast-color);
+  background: color-mix(in srgb, var(--accent-color), transparent 15%);
+}
+
+.btn-admin-outline {
+  color: var(--heading-color);
+  background: transparent;
+  border: 1px solid color-mix(in srgb, var(--default-color), transparent 70%);
+  font-family: var(--default-font);
+  font-size: 13px;
+  padding: 6px 18px;
+  border-radius: 50px;
+  transition: 0.3s;
+}
+
+.btn-admin-outline:hover {
+  border-color: var(--accent-color);
+  color: var(--accent-color);
+}
+
+/* ---------- Badges de rol / stock (mismo acento de marca) ---------- */
+.badge-rol-Administrador { background: var(--accent-color); }
+.badge-rol-Vendedor { background: #f7b267; color: #37373f; }
+.badge-rol-Cliente { background: #6a4c93; }
+.badge-stock-critico { background: #fff3cd; color: #7a5b00; }
+
+@media (max-width: 860px) {
+  .admin-layout {
+    flex-direction: column;
+  }
+  .admin-nav {
+    width: 100%;
+    display: flex;
+    overflow-x: auto;
+    padding: 6px;
+  }
+  .admin-nav .nav-link {
+    border-left: none;
+    border-bottom: 3px solid transparent;
+    white-space: nowrap;
+  }
+  .admin-nav .nav-link.active,
+  .admin-nav .nav-link:hover {
+    border-left-color: transparent;
+    border-bottom-color: var(--accent-color);
+  }
+  .admin-nav hr,
+  .admin-nav .nav-user {
+    display: none;
+  }
+}
