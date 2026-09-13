@@ -129,42 +129,9 @@
     </div>
   </main>
 
-  <script src="../assets/js/db.js"></script>
-  <script src="../assets/js/admin-auth.js"></script>
-  <script>
-    aplicarPermisosSidebar();
-
-    const sesion = obtenerSesion();
-    document.getElementById("jsHolaNombre").textContent = sesion?.nombre || "Administrador";
-
-    const productos = obtenerProductos();
-    const usuarios = obtenerUsuarios();
-    const categorias = new Set(productos.map((p) => p.categoria));
-    const conStockCritico = productos.filter(
-      (p) => p.stockCritico !== "" && p.stockCritico !== undefined && p.stock <= Number(p.stockCritico)
-    );
-
-    document.getElementById("jsStatProductos").textContent = productos.length;
-    document.getElementById("jsStatUsuarios").textContent = usuarios.length;
-    document.getElementById("jsStatStockCritico").textContent = conStockCritico.length;
-    document.getElementById("jsStatCategorias").textContent = categorias.size;
-
-    const tbody = document.getElementById("jsTablaStockCritico");
-    if (conStockCritico.length === 0) {
-      document.getElementById("jsSinAlertas").style.display = "block";
-    } else {
-      conStockCritico.forEach((p) => {
-        const tr = document.createElement("tr");
-        tr.innerHTML = `
-          <td>${p.nombre}</td>
-          <td>${p.categoria}</td>
-          <td>${p.stock}</td>
-          <td><span class="badge badge-stock-critico">${p.stockCritico}</span></td>
-        `;
-        tbody.appendChild(tr);
-      });
-    }
-  </script>
+  <script src="db.js"></script>
+  <script src="home.js"></script>
+  <script src="admin-auth.js"></script>
 </body>
 
 </html>

@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+  <title>Productos | Panel Administrativo | Restaurante La Cucina Nostra</title>
+
+  <!-- Favicons -->
+  <link href="../assets/img/Logo.png" rel="icon">
+  <link href="../assets/img/apple-touch-icon.png" rel="apple-touch-icon">
+
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com" rel="preconnect">
+  <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&family=Inter:wght@100;200;300;400;500;600;700;800;900&family=Amatic+SC:wght@400;700&display=swap" rel="stylesheet">
+
+  <!-- Vendor CSS Files (mismos que index.html) -->
+  <link href="../assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link href="../assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+
+  <!-- Main CSS File (identidad visual del sitio) -->
+  <link href="../assets/css/main.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+  <!-- Panel administrativo -->
+  <link href="../assets/css/admin.css" rel="stylesheet">
+</head>
+
+<body class="admin-page">
+
+  <!-- ===== Mismo header que index.html ===== -->
+  <header id="header" class="header d-flex align-items-center sticky-top">
+    <div class="container position-relative d-flex align-items-center justify-content-between">
+
+      <a href="../index.html" class="logo d-flex align-items-center me-auto me-xl-0">
+        <img src="../assets/img/Logo.png" alt="Logo" class="logo-circle">
+        <h1 class="sitename">Restaurante La Cucina Nostra</h1>
+        <span>.</span>
+      </a>
+
+      <nav id="navmenu" class="navmenu">
+        <ul>
+          <li><a href="home.html">Panel<br></a></li>
+          <li><a href="productos.html" class="active">Productos</a></li>
+          <li><a href="usuarios.html">Usuarios</a></li>
+          <li><a href="../index.html">Ver tienda</a></li>
+          <li><a href="#" onclick="cerrarSesionYRedirigir()">Cerrar sesión</a></li>
+        </ul>
+        <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
+      </nav>
+
+    </div>
+  </header>
+
+  <main class="main">
+    <div class="container">
+      <div class="admin-welcome">
+        <h2>Gestión de productos</h2>
+        <p>Administra el stock de materias primas del restaurante.</p>
+      </div>
+
+      <div class="admin-layout">
+
+        <!-- ===== Menú vertical ===== -->
+        <aside class="admin-nav">
+          <a href="home.html" class="nav-link"><i class="fa-solid fa-gauge"></i> Inicio</a>
+          <a href="productos.html" class="nav-link active"><i class="fa-solid fa-pizza-slice"></i> Productos</a>
+          <a href="usuarios.html" class="nav-link" id="jsNavUsuarios"><i class="fa-solid fa-users"></i> Usuarios</a>
+          <hr>
+          <div class="nav-user">
+            <div class="user-name" id="jsSidebarUserName">—</div>
+            <div class="user-role" id="jsSidebarUserRole">—</div>
+          </div>
+        </aside>
+
+        <!-- ===== Contenido ===== -->
+        <section class="admin-content">
+
+          <div class="admin-table-wrap">
+            <div class="d-flex justify-content-between align-items-center mb-3">
+              <div>
+                <h3 class="mb-1">Stock de materias primas</h3>
+                <p class="text-muted mb-0">Control de existencias disponibles para la operación del restaurante.</p>
+              </div>
+              <button type="button" class="btn btn-primary" id="btnAgregarProducto">
+                <i class="fa-solid fa-plus"></i> Agregar producto
+              </button>
+            </div>
+
+            <div class="table-responsive">
+              <table class="table admin-table mb-0">
+                <thead>
+                  <tr>
+                    <th>Producto</th>
+                    <th>Categoría</th>
+                    <th>Unidad</th>
+                    <th>Stock actual</th>
+                    <th>Stock crítico</th>
+                    <th>Estado</th>
+                    <th>Acciones</th>
+                  </tr>
+                </thead>
+                <tbody id="jsTablaProductos">
+                  <tr>
+                    <td>Tomate</td>
+                    <td>Verduras</td>
+                    <td>kg</td>
+                    <td>20</td>
+                    <td>5</td>
+                    <td><span class="badge bg-success">Disponible</span></td>
+                    <td>
+                      <button class="btn btn-sm btn-outline-primary" type="button" title="Editar">
+                        <i class="fa-solid fa-pen"></i>
+                      </button>
+                      <button class="btn btn-sm btn-outline-danger" type="button" title="Eliminar">
+                        <i class="fa-solid fa-trash"></i>
+                      </button>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>Harina</td>
+                    <td>Despensa</td>
+                    <td>kg</td>
+                    <td>35</td>
+                    <td>10</td>
+                    <td><span class="badge bg-success">Disponible</span></td>
+                    <td>
+                      <button class="btn btn-sm btn-outline-primary" type="button" title="Editar">
+                        <i class="fa-solid fa-pen"></i>
+                      </button>
+                      <button class="btn btn-sm btn-outline-danger" type="button" title="Eliminar">
+                        <i class="fa-solid fa-trash"></i>
+                      </button>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>Huevos</td>
+                    <td>Lácteos y huevos</td>
+                    <td>unidades</td>
+                    <td>48</td>
+                    <td>12</td>
+                    <td><span class="badge bg-success">Disponible</span></td>
+                    <td>
+                      <button class="btn btn-sm btn-outline-primary" type="button" title="Editar">
+                        <i class="fa-solid fa-pen"></i>
+                      </button>
+                      <button class="btn btn-sm btn-outline-danger" type="button" title="Eliminar">
+                        <i class="fa-solid fa-trash"></i>
+                      </button>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>Sal</td>
+                    <td>Despensa</td>
+                    <td>kg</td>
+                    <td>8</td>
+                    <td>3</td>
+                    <td><span class="badge bg-success">Disponible</span></td>
+                    <td>
+                      <button class="btn btn-sm btn-outline-primary" type="button" title="Editar">
+                        <i class="fa-solid fa-pen"></i>
+                      </button>
+                      <button class="btn btn-sm btn-outline-danger" type="button" title="Eliminar">
+                        <i class="fa-solid fa-trash"></i>
+                      </button>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>Aceite de oliva</td>
+                    <td>Aceites</td>
+                    <td>litros</td>
+                    <td>6</td>
+                    <td>2</td>
+                    <td><span class="badge bg-success">Disponible</span></td>
+                    <td>
+                      <button class="btn btn-sm btn-outline-primary" type="button" title="Editar">
+                        <i class="fa-solid fa-pen"></i>
+                      </button>
+                      <button class="btn btn-sm btn-outline-danger" type="button" title="Eliminar">
+                        <i class="fa-solid fa-trash"></i>
+                      </button>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>Albahaca</td>
+                    <td>Hierbas</td>
+                    <td>kg</td>
+                    <td>3</td>
+                    <td>2</td>
+                    <td><span class="badge bg-warning text-dark">Stock bajo</span></td>
+                    <td>
+                      <button class="btn btn-sm btn-outline-primary" type="button" title="Editar">
+                        <i class="fa-solid fa-pen"></i>
+                      </button>
+                      <button class="btn btn-sm btn-outline-danger" type="button" title="Eliminar">
+                        <i class="fa-solid fa-trash"></i>
+                      </button>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>Orégano</td>
+                    <td>Hierbas</td>
+                    <td>kg</td>
+                    <td>4</td>
+                    <td>2</td>
+                    <td><span class="badge bg-success">Disponible</span></td>
+                    <td>
+                      <button class="btn btn-sm btn-outline-primary" type="button" title="Editar">
+                        <i class="fa-solid fa-pen"></i>
+                      </button>
+                      <button class="btn btn-sm btn-outline-danger" type="button" title="Eliminar">
+                        <i class="fa-solid fa-trash"></i>
+                      </button>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>Ajo</td>
+                    <td>Verduras</td>
+                    <td>kg</td>
+                    <td>5</td>
+                    <td>2</td>
+                    <td><span class="badge bg-success">Disponible</span></td>
+                    <td>
+                      <button class="btn btn-sm btn-outline-primary" type="button" title="Editar">
+                        <i class="fa-solid fa-pen"></i>
+                      </button>
+                      <button class="btn btn-sm btn-outline-danger" type="button" title="Eliminar">
+                        <i class="fa-solid fa-trash"></i>
+                      </button>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>Charcutería</td>
+                    <td>Carnes y embutidos</td>
+                    <td>kg</td>
+                    <td>2</td>
+                    <td>3</td>
+                    <td><span class="badge bg-danger">Stock crítico</span></td>
+                    <td>
+                      <button class="btn btn-sm btn-outline-primary" type="button" title="Editar">
+                        <i class="fa-solid fa-pen"></i>
+                      </button>
+                      <button class="btn btn-sm btn-outline-danger" type="button" title="Eliminar">
+                        <i class="fa-solid fa-trash"></i>
+                      </button>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+
+        </section>
+      </div>
+    </div>
+  </main>
+
+  <script src="/db.js"></script>
+  <script src="/productos.js"></script>
+  <script src="/admin-auth.js"></script>
+  
+</body>
+
+</html>
