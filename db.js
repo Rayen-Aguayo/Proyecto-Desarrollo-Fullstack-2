@@ -10,8 +10,8 @@
    ============================================================ */
 
 const DB_KEYS = {
-  PRODUCTOS: 'lcn_productos'
-  // 'lcn_usuarios' queda reservado para usuarios.html más adelante
+  PRODUCTOS: 'lcn_productos',
+  USUARIOS: 'lcn_usuarios'
 };
 
 /* Datos de ejemplo: son los mismos que ya estaban escritos
@@ -127,4 +127,120 @@ function dbObtenerEstadoProducto(producto) {
 function dbObtenerCategorias() {
   const productos = dbObtenerProductos();
   return [...new Set(productos.map((p) => p.categoria))].sort();
+}
+
+/* ============================================================
+   Usuarios (historial de pedidos realizados por clientes)
+   Se muestran en usuarios.html: fecha, código de orden,
+   cliente, estado y monto del pedido.
+   ============================================================ */
+
+const USUARIOS_INICIALES = [
+  { id: 1,  fecha: '2026-09-05', codigoOrden: 'ORD-1038', cliente: 'Sofía Martínez',   estado: 'Entregado',      monto: 15990 },
+  { id: 2,  fecha: '2026-09-06', codigoOrden: 'ORD-1039', cliente: 'Diego Fernández',  estado: 'Entregado',      monto: 21990 },
+  { id: 3,  fecha: '2026-09-07', codigoOrden: 'ORD-1040', cliente: 'Valentina Castro', estado: 'Cancelado',      monto: 8990  },
+  { id: 4,  fecha: '2026-09-08', codigoOrden: 'ORD-1041', cliente: 'Juan Pérez',       estado: 'Entregado',      monto: 18990 },
+  { id: 5,  fecha: '2026-09-09', codigoOrden: 'ORD-1042', cliente: 'Camila Torres',    estado: 'En preparación', monto: 27990 },
+  { id: 6,  fecha: '2026-09-10', codigoOrden: 'ORD-1043', cliente: 'María González',   estado: 'Pendiente',      monto: 12500 },
+  { id: 7,  fecha: '2026-09-11', codigoOrden: 'ORD-1044', cliente: 'Carlos Rojas',     estado: 'En preparación', monto: 23990 },
+  { id: 8,  fecha: '2026-09-11', codigoOrden: 'ORD-1045', cliente: 'Ana Silva',        estado: 'Cancelado',      monto: 9990  },
+  { id: 9,  fecha: '2026-09-12', codigoOrden: 'ORD-1046', cliente: 'Pedro Muñoz',      estado: 'Entregado',      monto: 15990 },
+  { id: 10, fecha: '2026-09-13', codigoOrden: 'ORD-1047', cliente: 'Isidora Vargas',   estado: 'Pendiente',      monto: 19990 }
+];
+
+/* Crea los datos iniciales de usuarios/pedidos solo si
+   todavía no existe nada guardado en localStorage. */
+function dbInicializarUsuarios() {
+  const existe = localStorage.getItem(DB_KEYS.USUARIOS);
+  if (!existe) {
+    localStorage.setItem(DB_KEYS.USUARIOS, JSON.stringify(USUARIOS_INICIALES));
+  }
+}
+
+/* Devuelve el arreglo completo de usuarios/pedidos. */
+function dbObtenerUsuarios() {
+  dbInicializarUsuarios();
+  try {
+    return JSON.parse(localStorage.getItem(DB_KEYS.USUARIOS)) || [];
+  } catch (error) {
+    console.error('Error al leer usuarios de localStorage:', error);
+    return [];
+  }
+}
+
+/* Sobrescribe el arreglo completo de usuarios/pedidos. */
+function dbGuardarUsuarios(usuarios) {
+  localStorage.setItem(DB_KEYS.USUARIOS, JSON.stringify(usuarios));
+}
+
+/* Genera un id nuevo, correlativo al mayor id existente. */
+function dbGenerarIdUsuario() {
+  const usuarios = dbObtenerUsuarios();
+  if (usuarios.length === 0) return 1;
+  return Math.max(...usuarios.map((u) => u.id)) + 1;
+}
+
+/* Agrega un registro nuevo. 'usuario' debe traer:
+   { fecha, codigoOrden, cliente, estado, monto } */
+function dbAgregarUsuario(usuario) {
+  const usuarios = dbObtenerUsuarios();
+  const nuevoUsuario = {
+    id: dbGenerarIdUsuario(),
+    fecha: usuario.fecha,
+    codigoOrden: usuario.codigoOrden,
+    cliente: usuario.cliente,
+    estado: usuario.estado,
+    monto: Number(usuario.monto)
+  };
+  usuarios.push(nuevoUsuario);
+  dbGuardarUsuarios(usuarios);
+  return nuevoUsuario;
+}
+
+/* Actualiza un registro existente por id. */
+function dbActualizarUsuario(id, cambios) {
+  const usuarios = dbObtenerUsuarios();
+  const indice = usuarios.findIndex((u) => u.id === id);
+  if (indice === -1) return null;
+
+  usuarios[indice] = {
+    ...usuarios[indice],
+    ...cambios,
+    monto: cambios.monto !== undefined ? Number(cambios.monto) : usuarios[indice].monto
+  };
+
+  dbGuardarUsuarios(usuarios);
+  return usuarios[indice];
+}
+
+/* Elimina un registro por id. */
+function dbEliminarUsuario(id) {
+  const usuarios = dbObtenerUsuarios().filter((u) => u.id !== id);
+  dbGuardarUsuarios(usuarios);
+}
+
+/* Busca un registro puntual por id. */
+function dbObtenerUsuarioPorId(id) {
+  return dbObtenerUsuarios().find((u) => u.id === id) || null;
+}
+
+/* Calcula la badge de color según el estado del pedido. */
+function dbObtenerEstadoUsuario(usuario) {
+  switch (usuario.estado) {
+    case 'Entregado':
+      return { texto: 'Entregado', clase: 'bg-success' };
+    case 'Pendiente':
+      return { texto: 'Pendiente', clase: 'bg-warning text-dark' };
+    case 'En preparación':
+      return { texto: 'En preparación', clase: 'bg-info text-dark' };
+    case 'Cancelado':
+      return { texto: 'Cancelado', clase: 'bg-danger' };
+    default:
+      return { texto: usuario.estado, clase: 'bg-secondary' };
+  }
+}
+
+/* Formatea un monto en pesos chilenos, ej: 18990 -> "$18.990". */
+function dbFormatearMonto(monto) {
+  return '$' + Number(monto).toLocaleString('es-CL');
 }
