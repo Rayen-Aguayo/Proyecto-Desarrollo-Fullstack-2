@@ -8,7 +8,7 @@
 
   // Sin sesión, o sesión de Cliente -> fuera del panel admin
   if (!sesion || sesion.tipoUsuario === "Cliente") {
-    window.location.href = "../login.html";
+    window.location.href = "login.html";
   }
 })();
 
@@ -36,5 +36,5 @@ function aplicarPermisosSidebar() {
 
 function cerrarSesionYRedirigir() {
   cerrarSesion();
-  window.location.href = "../login.html";
+  window.location.href = "login.html";
 }
